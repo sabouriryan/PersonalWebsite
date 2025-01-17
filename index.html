@@ -125,7 +125,7 @@
 
     /*----------------------------------------------------------
       HERO SECTION
-      (UPDATED for a colorful programming background)
+      (Colorful, code-related background)
     ----------------------------------------------------------*/
     .hero {
       height: 70vh;
@@ -134,7 +134,7 @@
       justify-content: center;
       flex-direction: column;
       text-align: center;
-      /* Replace the URL below with any colorful, code-related image you prefer */
+      /* Replace this with any colorful, code-themed image you prefer */
       background: 
         url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80')
         no-repeat center center/cover;
@@ -143,7 +143,6 @@
       margin-top: 70px; /* offset for fixed header */
     }
 
-    /* A slight dark overlay so text is easier to read on a colorful image */
     .hero-overlay {
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
@@ -239,6 +238,9 @@
 
     .experience-item h3 {
       margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .experience-item span {
@@ -250,6 +252,14 @@
       margin-top: 0.5rem;
       list-style-type: disc;
       margin-left: 1.5rem;
+    }
+
+    /* Logo styling for the experience/education items */
+    .company-logo,
+    .school-logo {
+      width: 70px; 
+      height: auto;
+      vertical-align: middle;
     }
 
     /*----------------------------------------------------------
@@ -271,6 +281,12 @@
     .education-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .education-item h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     /*----------------------------------------------------------
@@ -391,7 +407,7 @@
 </head>
 
 <!-- 
-  Body now starts with dark-mode by default 
+  Body starts with dark-mode by default 
 -->
 <body class="dark-mode">
 
@@ -445,12 +461,20 @@
 
   <!-- ============================================
        EXPERIENCE
+       (Uses the new Capital One logo)
   ============================================= -->
   <section id="experience">
     <h2>Experience</h2>
     <div class="experience-timeline">
       <div class="experience-item">
-        <h3>Software Engineer Intern @ Capital One</h3>
+        <h3>
+          <img 
+            src="https://iconape.com/wp-content/files/rk/43715/png/capital-one-logo.png"
+            alt=""
+            class="company-logo"
+          />
+          Software Engineer Intern @ Capital One
+        </h3>
         <span>Richmond, VA | June 2024 – Aug 2024</span>
         <ul>
           <li>Developed a standardized and automated data reconciliation process ensuring reliability and integrity of customer core demographic data.</li>
@@ -465,13 +489,21 @@
 
   <!-- ============================================
        EDUCATION
+       (Uses the new UC Irvine logo)
   ============================================= -->
   <section id="education">
     <h2>Education</h2>
     <div class="education-list">
       <div class="education-item">
-        <h3>University of California, Irvine</h3>
-        <span>Bachelor of Science in Computer Science, December 2024</span>
+        <h3>
+          <img 
+            src="https://photo.isu.pub/ucibrenics/photo_large.jpg"
+            alt=""
+            class="school-logo"
+          />
+          University of California, Irvine
+        </h3>
+        <span>B.S. in Computer Science, December 2024</span>
       </div>
     </div>
   </section>
@@ -721,8 +753,7 @@
 
   <!-- ============================================
        JAVASCRIPT
-       (Updated so the toggle button text starts in "Light Mode" 
-       if dark mode is already on)
+       (Button text starts in "Light Mode" if dark mode is on)
   ============================================= -->
   <script>
     const body = document.body;
@@ -762,6 +793,5 @@
       observer.observe(section);
     });
   </script>
-
 </body>
 </html>
