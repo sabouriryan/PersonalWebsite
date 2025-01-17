@@ -97,7 +97,6 @@
       padding: 0 1rem;
     }
 
-    /* The nav-links are centered, toggle button on the far right */
     .nav-links {
       flex: 1;
       display: flex;
@@ -126,6 +125,7 @@
 
     /*----------------------------------------------------------
       HERO SECTION
+      (UPDATED for a colorful programming background)
     ----------------------------------------------------------*/
     .hero {
       height: 70vh;
@@ -134,16 +134,20 @@
       justify-content: center;
       flex-direction: column;
       text-align: center;
-      background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+      /* Replace the URL below with any colorful, code-related image you prefer */
+      background: 
+        url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80')
+        no-repeat center center/cover;
       position: relative;
       color: #fff;
       margin-top: 70px; /* offset for fixed header */
     }
 
+    /* A slight dark overlay so text is easier to read on a colorful image */
     .hero-overlay {
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.4);
     }
 
     .hero-content {
@@ -376,11 +380,6 @@
       MEDIA QUERIES
     ----------------------------------------------------------*/
     @media (max-width: 768px) {
-      /* 
-        If you want to handle nav links differently on mobile,
-        you can hide them or create a hamburger menu here.
-        For now, leaving them as is.
-      */
       .hero h1 {
         font-size: 2.2rem;
       }
@@ -390,14 +389,17 @@
     }
   </style>
 </head>
-<body>
+
+<!-- 
+  Body now starts with dark-mode by default 
+-->
+<body class="dark-mode">
 
   <!-- ============================================
        HEADER + NAV
   ============================================= -->
   <header>
     <nav>
-      <!-- Removed the brand text so we just have the nav links centered -->
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
@@ -481,7 +483,6 @@
     <h2>Technical Skills</h2>
     <p style="text-align:center;">Below are some of the technologies I've worked with in the past</p>
     <div class="skills-grid">
-      <!-- Keep all your skill logos and names here -->
       <div class="skill">
         <img 
           src="https://www.kindpng.com/picc/m/198-1984828_java-icon-transparent-hd-png-download.png" 
@@ -538,7 +539,6 @@
         />
         JavaScript
       </div>
-      <!-- Tools -->
       <div class="skill">
         <img 
           src="https://www.pngplay.com/wp-content/uploads/3/Amazon-Web-Services-AWS-Logo-Transparent-PNG.png" 
@@ -611,7 +611,6 @@
         />
         Postman
       </div>
-      <!-- Databases -->
       <div class="skill">
         <img 
           src="https://cdn.simpleicons.org/mysql/4479A1" 
@@ -722,12 +721,21 @@
 
   <!-- ============================================
        JAVASCRIPT
+       (Updated so the toggle button text starts in "Light Mode" 
+       if dark mode is already on)
   ============================================= -->
   <script>
-    // Dark Mode Toggle
     const body = document.body;
     const toggleBtn = document.getElementById('darkModeToggle');
 
+    // Ensure button text matches the current mode
+    if (body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = 'Light Mode';
+    } else {
+      toggleBtn.textContent = 'Dark Mode';
+    }
+
+    // Toggle between dark/light mode
     toggleBtn.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
       toggleBtn.textContent = body.classList.contains('dark-mode') 
