@@ -13,6 +13,20 @@
       padding: 0;
     }
 
+
+    /* Typewriter effect */
+    #typewriter {
+        display: inline-block;
+        border-right: 2px solid;               /* Simulates a cursor */
+        animation: blink-cursor 0.7s step-start infinite;
+    }
+
+    @keyframes blink-cursor {
+        50% {
+            border-color: transparent;          /* Blinks the cursor */
+        }
+    }
+
     html {
       scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
     }
@@ -435,7 +449,7 @@
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Ryan Sabouri</h1>
+      <h1 id="typewriter"></h1>
       <p>I’m a passionate Software Developer from Irvine, CA.</p>
     </div>
   </section>
@@ -816,6 +830,25 @@
     sections.forEach(section => {
       observer.observe(section);
     });
+
+    // Typewriter effect for the hero heading
+    document.addEventListener('DOMContentLoaded', () => {
+    const text = "Ryan Sabouri";   // The text to type
+    const typewriter = document.getElementById("typewriter");
+    let index = 0;
+    const typingSpeed = 100;       // Adjust to speed up/slow down
+
+    function typeCharacter() {
+        if (index < text.length) {
+        typewriter.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeCharacter, typingSpeed);
+        }
+    }
+
+    typeCharacter();
+    });
+
   </script>
 </body>
 </html>
